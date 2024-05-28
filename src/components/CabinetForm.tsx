@@ -39,6 +39,10 @@ const CabinetForm: React.FC = () => {
     }
   };
 
+  function removeLocalStorageItem(key: string): void {
+    localStorage.removeItem(key);
+  }
+
   const handleDeleteCabinet = async (id: string) => {
     try {
       // Delete related cabinet members
@@ -49,6 +53,9 @@ const CabinetForm: React.FC = () => {
 
       if (deleteMembersError) {
         throw deleteMembersError;
+      } else {
+        // Example usage:
+        removeLocalStorageItem(id);
       }
 
       // Delete the cabinet itself

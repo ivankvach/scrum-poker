@@ -10,10 +10,6 @@ const CabinetList = () => {
 
   const [cabinets, setCabinets] = useState<Cabinet[]>([]);
 
-  function setLocalStorageItem(key: string, value: string): void {
-    localStorage.setItem(key, value);
-  }
-
   console.log(cabinets);
 
   useEffect(() => {
@@ -25,7 +21,6 @@ const CabinetList = () => {
         console.error('Error fetching cabinets:', error);
       } else {
         setCabinets(data);
-        setLocalStorageItem('username', 'john_doe');
       }
     };
 
